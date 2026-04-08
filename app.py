@@ -15,6 +15,13 @@ app   = Flask(__name__)
 env   = EmailEnvironment()
 agent = None
 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def greet_json():
+    return {"Hello": "World!"}
 
 def get_agent():
     global agent
